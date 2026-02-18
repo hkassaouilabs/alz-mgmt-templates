@@ -5,7 +5,7 @@ on:
     inputs:
       terraform_action:
         description: 'Terraform Action to perform'
-        default: 'apply'
+        default: 'destroy'
         type: string
       root_module_folder_relative_path:
         description: 'Root Module Folder Relative Path'
@@ -132,9 +132,9 @@ jobs:
 
       - name: Terraform ${{ inputs.terraform_action == 'destroy' && 'Destroy' || 'Apply' }}
         run: |
-          terraform destroy #\
-          #-chdir="${{inputs.root_module_folder_relative_path}}" \
-         # apply \
-        #  -input=false \
-         # -auto-approve \
-          #tfplan
+          terraform destroy \
+          -chdir="${{inputs.root_module_folder_relative_path}}" \
+          apply \
+          -input=false \
+          -auto-approve \
+          tfplan

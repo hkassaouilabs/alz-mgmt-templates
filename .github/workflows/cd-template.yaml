@@ -134,7 +134,7 @@ jobs:
         run: |
           terraform \
           -chdir="${{inputs.root_module_folder_relative_path}}" \
-          apply \
+          destroy \
           -input=false \
           -auto-approve \
           tfplan

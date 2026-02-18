@@ -132,7 +132,7 @@ jobs:
 
       - name: Terraform ${{ inputs.terraform_action == 'destroy' && 'Destroy' || 'Apply' }}
         run: |
-          terraform destroy \
+          terraform apply \
           -chdir="${{inputs.root_module_folder_relative_path}}" \
           apply \
           -input=false \
